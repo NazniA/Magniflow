@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --mf-primary: #004AAD;
+  --mf-accent: #009DFF;
+}
+
+html,body,#__next{height:100%}
+body{
+  @apply bg-white text-gray-800;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Brand utilities */
+.btn-gradient {
+  background-image: linear-gradient(90deg, var(--mf-accent) 0%, var(--mf-primary) 100%);
+}
+.card {
+  @apply bg-white rounded-2xl shadow p-6;
+}
+.logo-gradient{
+  background: linear-gradient(90deg,var(--mf-accent),var(--mf-primary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero-wave {
+  background: radial-gradient(circle at 10% 20%, rgba(0,157,255,0.08), transparent 10%),
+              radial-gradient(circle at 90% 80%, rgba(0,74,173,0.06), transparent 10%);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+
+/* Glassmorphism utility */
+.glass-card {
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.animate-\[gradientShift_12s_ease_infinite\] {
+    background-size: 300% 300%;
+}
+
+
+/* Magniflow brand tokens */
+:root{
+  --brand-primary: #004AAD;
+  --brand-accent:  #009DFF;
+}
+.text-brand{color:var(--brand-primary) !important}
+.bg-brand{background:var(--brand-primary) !important}
+.btn-brand{background:linear-gradient(90deg,var(--brand-accent),var(--brand-primary));color:#fff;padding:.6rem 1.2rem;border-radius:999px;box-shadow:0 12px 30px rgba(0,77,170,0.16);}
+.btn-outline-brand{border:2px solid var(--brand-primary);color:var(--brand-primary);padding:.5rem 1rem;border-radius:999px;}
+.hero-overlay{background:linear-gradient(135deg,rgba(0,157,255,0.22),rgba(0,74,173,0.16));}
+.glass-card{background:rgba(255,255,255,0.08);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.06);}
