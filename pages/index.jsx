@@ -14,7 +14,9 @@ import dynamic from "next/dynamic";
 
 const ServiceCard = dynamic(() => import("../components/ServiceCard"), {
     ssr: false,
-    loading: () => <div className="h-28 rounded-xl bg-gray-100 animate-pulse" />
+    loading: () => (
+        <div className="h-40 rounded-xl bg-gray-200 animate-pulse" />
+    )
 });
 
 
@@ -138,6 +140,7 @@ function StatBlock({ label, value, suffix = "", icon, color = "teal" }) {
 
 // ⭐⭐⭐ MAIN HOME PAGE ⭐⭐⭐
 export default function Home() {
+    const [visible, setVisible] = useState(6);
     return (
         <div className="text-gray-800">
 
@@ -304,9 +307,25 @@ export default function Home() {
             <AnimatedSection className="py-12 sm:py-16">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6">
                     <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8">Our Services</h2>
+
+                    
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                        {SERVICES.map(s => <ServiceCard key={s.id} s={s} />)}
+                        {SERVICES.slice(0, visible).map(s => (
+                            <ServiceCard key={s.id} s={s} />
+                        ))}
                     </div>
+
+                    {visible < SERVICES.length && (
+                        <div className="text-center mt-6">
+                            <button
+                                onClick={() => setVisible(v => v + 6)}
+                                className="px-6 py-2 rounded-full bg-magniflow-900 text-white hover:bg-magniflow-500 transition"
+                            >
+                                Show more
+                            </button>
+                        </div>
+                    )}
+
                 </div>
             </AnimatedSection>
 
