@@ -257,7 +257,7 @@ export default function Home() {
   className="aspect-video rounded-xl overflow-hidden shadow-2xl bg-black"
 >
   <iframe
-                                    src="https://www.youtube.com/embed/OzO28BnC2N0?loop=1&playlist=OzO28BnC2N0"
+                                    src="https://www.youtube.com/embed/Fs-uNX0tpm8?loop=1&playlist=Fs-uNX0tpm8"
     title="Magniflow Introduction"
     className="w-full h-full"
     frameBorder="0"
