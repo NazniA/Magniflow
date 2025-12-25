@@ -68,9 +68,10 @@ export default function CTAForm() {
                 name="name"
                 required
                 placeholder="Name"
-                className="w-full border rounded px-3 py-2
+                className="w-full border rounded px-3 py-2.5 text-sm sm:text-base
         text-gray-900 placeholder-gray-400
-        focus:outline-none focus:ring-2 focus:ring-teal-500"
+        focus:outline-none focus:ring-2 focus:ring-teal-500
+        min-h-[44px]"
             />
 
             <input
@@ -78,18 +79,20 @@ export default function CTAForm() {
                 type="email"
                 required
                 placeholder="Email"
-                className="w-full border rounded px-3 py-2
+                className="w-full border rounded px-3 py-2.5 text-sm sm:text-base
         text-gray-900 placeholder-gray-400
-        focus:outline-none focus:ring-2 focus:ring-teal-500"
+        focus:outline-none focus:ring-2 focus:ring-teal-500
+        min-h-[44px]"
             />
 
             <input
                 name="phone"
                 required
                 placeholder="Phone"
-                className="w-full border rounded px-3 py-2
+                className="w-full border rounded px-3 py-2.5 text-sm sm:text-base
         text-gray-900 placeholder-gray-400
-        focus:outline-none focus:ring-2 focus:ring-teal-500"
+        focus:outline-none focus:ring-2 focus:ring-teal-500
+        min-h-[44px]"
             />
 
             <textarea
@@ -97,18 +100,18 @@ export default function CTAForm() {
                 required
                 placeholder="Ask your question"
                 rows={3}
-                className="w-full border rounded px-3 py-2
+                className="w-full border rounded px-3 py-2.5 text-sm sm:text-base
         text-gray-900 placeholder-gray-400
         focus:outline-none focus:ring-2 focus:ring-teal-500
-        resize-none"
+        resize-none min-h-[88px]"
             />
 
             <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-teal-600 text-white py-2 rounded-md
+                className="w-full bg-teal-600 text-white py-2.5 rounded-md text-sm sm:text-base
         hover:bg-teal-700 disabled:opacity-60 disabled:cursor-not-allowed
-        transition-all duration-200"
+        transition-all duration-200 font-medium min-h-[44px]"
             >
                 {loading ? 'Submitting…' : 'Submit'}
             </button>

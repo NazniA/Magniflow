@@ -26,7 +26,7 @@ export default function ServiceCard({ s }) {
             onMouseLeave={reset}
             style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
             whileHover={{ y: -4 }}
-            className="relative h-[250px] rounded-xl 
+            className="relative min-h-[220px] sm:h-[250px] rounded-xl 
                  overflow-hidden 
                  bg-black/30 backdrop-blur-lg 
                  border border-white/30 
@@ -44,34 +44,34 @@ export default function ServiceCard({ s }) {
 
             {/* CONTENT */}
             <div
-                className="relative z-10 h-full px-5 pt-4 pb-4 
+                className="relative z-10 h-full px-4 sm:px-5 pt-3 sm:pt-4 pb-3 sm:pb-4 
                    flex flex-col justify-between text-white"
                 style={{ transform: 'translateZ(24px)' }}
             >
                 {/* TOP CONTENT */}
                 <div>
-                    <h3 className="text-base font-semibold leading-snug">
+                    <h3 className="text-sm sm:text-base font-semibold leading-snug">
                         {s.title}
                     </h3>
 
-                    <p className="mt-1.5 text-sm text-gray-300 leading-relaxed">
+                    <p className="mt-1 sm:mt-1.5 text-xs sm:text-sm text-gray-300 leading-relaxed line-clamp-3">
                         {s.short}
                     </p>
                 </div>
 
                 {/* CTA — pulled up */}
-                <div className="flex items-center justify-between text-sm 
-                        pt-2 border-t border-white/20">
+                <div className="flex items-center justify-between text-xs sm:text-sm 
+                        pt-2 border-t border-white/20 mt-2">
                     <Link
                         href={`/services/${s.id}`}
-                        className="font-medium text-blue-400 hover:text-blue-300"
+                        className="font-medium text-blue-400 hover:text-blue-300 min-h-[44px] flex items-center"
                     >
                         Learn more →
                     </Link>
 
                     <Link
                         href="/contact"
-                        className="text-gray-300 hover:text-white"
+                        className="text-gray-300 hover:text-white min-h-[44px] flex items-center"
                     >
                         Enquire
                     </Link>

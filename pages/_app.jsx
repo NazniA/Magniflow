@@ -43,7 +43,7 @@ export default function App({ Component, pageProps, router }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.45 }}
-              className="max-w-6xl mx-auto px-6 py-10 min-h-[70vh]"
+              className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-10 min-h-[70vh]"
             >
               <Component {...pageProps} />
             </motion.main>

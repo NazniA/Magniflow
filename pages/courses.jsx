@@ -298,37 +298,51 @@ export default function Courses() {
 
 
             {/* Footer */}
-            <footer className="bg-gray-900 text-gray-300 py-12">
-                <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div>
-                        <div className="text-white font-bold text-xl">Magniflow</div>
-                        <p className="mt-3 text-sm">Visa. Tech. Careers. Training. Travel — we help you go global.</p>
-                    </div>
+            <footer className="bg-gray-900 text-white py-12" data-testid="footer">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid md:grid-cols-4 gap-8">
+                        <div>
+                            <h3 className="text-2xl font-bold mb-4" data-testid="footer-logo">Magniflow</h3>
+                            <p className="text-gray-400" data-testid="footer-tagline">Visa. Tech. Careers. Training. Travel — we help you go global.</p>
+                        </div>
+                        <div>
+                            <h4 className="font-bold mb-4" data-testid="footer-services-title">Services</h4>
+                            <ul className="space-y-2 text-gray-400">
+                                <li><Link href="services/visa-immigration">Visa & Immigration</Link></li>
+                                <li><Link href="services/it-solutions">IT Consultation</Link></li>
+                                <li><Link href="services/career-counselling">Career Counselling</Link></li>
+                                <li><Link href="services/tech-training">Training</Link></li>
+                                <li><Link href="services/tourism-travel">International Travelling</Link></li>
 
-                    <div>
-                        <h4 className="font-semibold text-white">Quick Links</h4>
-                        <ul className="mt-3 space-y-2 text-sm">
-                            <li><Link href="/">Home</Link></li>
-                            <li><Link href="/services">Services</Link></li>
-                            <li><Link href="/courses">Courses</Link></li>
-                            <li><Link href="/about">About</Link></li>
-                            <li><Link href="/blog">Blog</Link></li>
-                            <li><Link href="/contact">Contact</Link></li>
-                        </ul>
-                    </div>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 className="font-bold mb-4" data-testid="footer-company-title">Company</h4>
+                            <ul className="space-y-2 text-gray-400">
+                                <li><Link href="about">About Us</Link></li>
+                                <li><Link href="courses">Courses</Link></li>
+                                <li><Link href="blog">Blog</Link></li>
+                                <li><Link href="about">contact</Link></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 className="font-bold mb-4" data-testid="footer-contact-title">Contact</h4>
+                            <ul className="space-y-2 text-gray-400">
+                                <p className="mt-2 sm:mt-3 text-xs sm:text-sm break-words">info@magniflow.co.uk</p>
+                                <p className="text-xs sm:text-sm mt-1">+44 7407 748717</p>
+                                <p className="mt-2 sm:mt-3 text-xs sm:text-sm break-words">London,UK</p>
 
-                    <div>
-                        <h4 className="font-semibold text-white">Contact</h4>
-                        <p className="mt-3 text-sm">contactmagniflow@gmail.com</p>
-                        <p className="text-sm mt-1">+44 7407 748717</p>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400" data-testid="footer-copyright">
+                        <p>© 2025 Magniflow. All rights reserved.</p>
                     </div>
                 </div>
             </footer>
+
         </div>
-
-
-
-
-        
     );
 }
+
+

@@ -90,9 +90,10 @@ export default function Navbar() {
                 {/* Mobile Menu Button */}
                 <button
                     onClick={() => setMobileOpen(!mobileOpen)}
-                    className="md:hidden text-gray-700"
+                    className="md:hidden text-gray-700 p-2 min-h-[44px] min-w-[44px] flex items-center justify-center"
+                    aria-label="Toggle menu"
                 >
-                    ☰
+                    <span className="text-2xl">☰</span>
                 </button>
             </div>
 
@@ -100,12 +101,46 @@ export default function Navbar() {
             {mobileOpen && (
                 <div className="md:hidden bg-white border-t shadow-lg">
                     <div className="flex flex-col p-4 space-y-3 text-sm">
-                        <Link href="/" onClick={() => setMobileOpen(false)}>Home</Link>
-                        <Link href="/services" onClick={() => setMobileOpen(false)}>Services</Link>
-                        <Link href="/courses" onClick={() => setMobileOpen(false)}>Courses</Link>
-                        <Link href="/blog" onClick={() => setMobileOpen(false)}>Blog</Link>
-                        <Link href="/about" onClick={() => setMobileOpen(false)}>About</Link>
-                        <Link href="/contact" onClick={() => setMobileOpen(false)} className="text-blue-600 font-semibold">
+                        <Link 
+                            href="/" 
+                            onClick={() => setMobileOpen(false)}
+                            className="py-2 px-3 hover:bg-gray-50 rounded min-h-[44px] flex items-center"
+                        >
+                            Home
+                        </Link>
+                        <Link 
+                            href="/services" 
+                            onClick={() => setMobileOpen(false)}
+                            className="py-2 px-3 hover:bg-gray-50 rounded min-h-[44px] flex items-center"
+                        >
+                            Services
+                        </Link>
+                        <Link 
+                            href="/courses" 
+                            onClick={() => setMobileOpen(false)}
+                            className="py-2 px-3 hover:bg-gray-50 rounded min-h-[44px] flex items-center"
+                        >
+                            Courses
+                        </Link>
+                        <Link 
+                            href="/blog" 
+                            onClick={() => setMobileOpen(false)}
+                            className="py-2 px-3 hover:bg-gray-50 rounded min-h-[44px] flex items-center"
+                        >
+                            Blog
+                        </Link>
+                        <Link 
+                            href="/about" 
+                            onClick={() => setMobileOpen(false)}
+                            className="py-2 px-3 hover:bg-gray-50 rounded min-h-[44px] flex items-center"
+                        >
+                            About
+                        </Link>
+                        <Link 
+                            href="/contact" 
+                            onClick={() => setMobileOpen(false)} 
+                            className="text-blue-600 font-semibold py-2 px-3 hover:bg-gray-50 rounded min-h-[44px] flex items-center"
+                        >
                             Contact
                         </Link>
                     </div>

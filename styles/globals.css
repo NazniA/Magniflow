@@ -13,6 +13,15 @@ html,body,#__next{height:100%}
 body{
   @apply bg-white text-gray-800;
   font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mobile-first responsive typography */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
 }
 
 /* Brand utilities */
@@ -78,3 +87,28 @@ body{
 .btn-outline-brand{border:2px solid var(--brand-primary);color:var(--brand-primary);padding:.5rem 1rem;border-radius:999px;}
 .hero-overlay{background:linear-gradient(135deg,rgba(0,157,255,0.22),rgba(0,74,173,0.16));}
 .glass-card{background:rgba(255,255,255,0.08);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.06);}
+
+/* Mobile responsive utilities */
+@media (max-width: 640px) {
+  .btn-brand {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Ensure touch targets are 44x44px minimum */
+button, a {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Line clamp utility for mobile */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
