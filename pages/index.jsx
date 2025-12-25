@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import Typewriter from 'typewriter-effect';
 import AnimatedSection from '../components/AnimatedSection';
-import ServiceCard from '../components/ServiceCard';
+
 import MagneticButton from '../components/MagneticButton';
 import { SERVICES } from '../data/services';
 import { useEffect, useState } from "react";
@@ -10,7 +10,12 @@ import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import TestimonialCarousel from "../components/TestimonialCarousel";
 import CTAForm from '../components/CTAForm';
+import dynamic from "next/dynamic";
 
+const ServiceCard = dynamic(() => import("../components/ServiceCard"), {
+    ssr: false,
+    loading: () => <div className="h-28 rounded-xl bg-gray-100 animate-pulse" />
+});
 
 
 
