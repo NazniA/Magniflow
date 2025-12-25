@@ -240,38 +240,7 @@ export default function Courses() {
                 </Link>
             </section>
 
-            {/* FORM SECTION */}
-            <section className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
-
-                <div>
-                    <h3 className="text-3xl font-bold text-blue-900">Need Help Choosing the Right Course?</h3>
-
-                    <p className="mt-3 text-gray-600">
-                        We’ll guide you based on your background, interests and future goals.
-                    </p>
-
-                    <p className="mt-3 text-gray-600">
-                        Fill out this quick form — our team will contact you with personalised recommendations.
-                    </p>
-                </div>
-
-                <form className="bg-white shadow-lg rounded-xl p-6">
-                    <input className="form-input" placeholder="Name" required />
-                    <input className="form-input mt-3" placeholder="Email" required />
-                    <input className="form-input mt-3" placeholder="Phone" required />
-
-                    <select className="form-input mt-3" required>
-                        <option value="">Select Course</option>
-                        <option>Career Readiness Program</option>
-                        <option>Entrepreneur Growth Program</option>
-                        <option>Visa Process Workshop</option>
-                    </select>
-
-                    <button className="mt-5 w-full bg-blue-700 text-white py-2 rounded-md hover:bg-blue-800 transition">
-                        Submit
-                    </button>
-                </form>
-            </section>
+            
 
             {/* FAQ */}
             <section className="max-w-6xl mx-auto px-6 py-20">
