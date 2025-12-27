@@ -1,8 +1,17 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import Modal from "../components/Modal";
 import { motion } from "framer-motion";
+import CTAForm from "../components/CTAForm";
+import { useState } from "react";
 
 export default function Courses() {
+
+    // 🔥 popup + lock states
+    const [open, setOpen] = useState(false);
+    const [lockClose, setLockClose] = useState(false);
+
     return (
         <div className="text-gray-800">
 
@@ -27,7 +36,9 @@ export default function Courses() {
                         transition={{ delay: 0.3 }}
                         className="max-w-3xl mx-auto mt-5 text-blue-100 text-lg"
                     >
-                        Industry-aligned training, expert consulting, and structured mentorship across visa & immigration, business growth, IT consulting, professional training, and global mobility — designed for individuals and organisations targeting international success.
+                        Industry-aligned training, expert consulting, and structured mentorship across
+                        global visa pathways, business consulting, IT consulting, professional training,
+                        and mobility planning.
                     </motion.p>
                 </div>
             </section>
@@ -233,14 +244,34 @@ export default function Courses() {
                     Success begins with clarity and the right guidance. Our experts help you define your direction, build relevant skills, and execute your plans with confidence.
                 </p>
 
-                <Link href="/contact">
-                    <button className="mt-6 px-8 py-3 bg-white text-blue-700 font-semibold rounded-full shadow">
-                        Book Your Appointment
-                    </button>
-                </Link>
-            </section>
+                {/* BOOK BUTTON */}
+                <button
+                    onClick={() => setOpen(true)}
+                    className="mt-6 px-7 py-3 bg-white text-blue-700 font-semibold rounded-full shadow hover:scale-105 transition"
+                >
+                    Book Now
+                </button>
 
-            
+                {/* MODAL */}
+                <Modal
+                    open={open}
+                    onClose={() => {
+                        if (!lockClose) setOpen(false);
+                    }}
+                    disabled={lockClose}
+                >
+                    <h3 className="text-lg font-bold mb-3">Book Your Consultation</h3>
+
+                    <CTAForm
+                        onSuccess={() => {
+                            // popup closes after CTAForm thank-you delay
+                            setLockClose(false);
+                            setOpen(false);
+                        }}
+                        setLock={(v) => setLockClose(v)}
+                    />
+                </Modal>
+            </section>
 
             {/* FAQ */}
             <section className="max-w-6xl mx-auto px-6 py-20">
@@ -263,8 +294,6 @@ export default function Courses() {
                     ))}
                 </div>
             </section>
-
-
 
             {/* Footer */}
             <footer className="bg-gray-900 text-white py-12" data-testid="footer">
@@ -313,5 +342,3 @@ export default function Courses() {
         </div>
     );
 }
-
-

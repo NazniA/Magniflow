@@ -3,16 +3,16 @@ import emailjs from 'emailjs-com';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 
-export default function CTAForm() {
+export default function CTAForm({ onSuccess, setLock }) {
     const [loading, setLoading] = useState(false);
+    const [showThanks, setShowThanks] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        // 🚫 Prevent double submit
         if (loading) return;
 
         setLoading(true);
+        setLock?.(true);
 
         const form = e.target;
 
@@ -24,11 +24,10 @@ export default function CTAForm() {
             time: new Date().toLocaleString(),
         };
 
-        // 🔄 Loading toast
         const toastId = toast.loading('Submitting your request…');
 
         try {
-            /* ---------------- EMAIL ---------------- */
+            // -------- EMAIL ----------
             await emailjs.send(
                 process.env.NEXT_PUBLIC_EMAILJS_SERVICE,
                 process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE,
@@ -38,29 +37,52 @@ export default function CTAForm() {
 
             toast.success('📧 Email sent successfully', { id: toastId });
 
-            /* ---------------- GOOGLE SHEET ---------------- */
+            // -------- GOOGLE SHEET ----------
             await fetch(process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL, {
                 method: 'POST',
                 mode: 'no-cors',
                 body: JSON.stringify(data),
             });
 
-
-            toast.success('📊 Saved to Google Sheet', {
-                duration: 3000,
-            });
+            toast.success('📊 Saved to Google Sheet', { duration: 3000 });
 
             form.reset();
+
+            // 🎉 Popup Thank-you view
+            setShowThanks(true);
+
+            setTimeout(() => {
+                setShowThanks(false);
+                setLoading(false);
+                setLock?.(false);
+                onSuccess?.();
+            }, 1500);
+
         } catch (error) {
             console.error(error);
 
             toast.error('❌ Submission failed. Please try again.', {
                 id: toastId,
             });
-        }
 
-        setLoading(false);
+            setLoading(false);
+            setLock?.(false);
+        }
     };
+
+    // THANK-YOU MESSAGE VIEW
+    if (showThanks) {
+        return (
+            <div className="text-center py-6 animate-fade">
+                <h3 className="text-xl font-semibold text-blue-700">
+                    🎉 Thank you!
+                </h3>
+                <p className="text-gray-600 mt-1">
+                    We received your message — we’ll contact you shortly.
+                </p>
+            </div>
+        );
+    }
 
     return (
         <form onSubmit={handleSubmit} className="space-y-3">
